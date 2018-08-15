@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+            background-color: #F7F7F7;
+        }
+        form {
+            max-width: 640px;
+            width: 100%;
+            margin: 32px auto 0;
+            font-size: 32px;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <select>
+            <option>选项1</option>
+            <option>选项2</option>
+            <option>选项3</option>
+            <option>选项4</option>
+            <option>选项5</option>
+        </select>
+        <br><br>
+        <!-- 一个普通的输入框-->
+        <input type="text" list="dataList" />
+        <datalist id="dataList"> <!-- 数据列表 -->
+            <option value="1">宝马</option>
+            <option value="2">宝骏</option>
+            <option value="3">奥迪</option>
+            <option value="3">迪奥</option>
+            <option value="3">宝宝</option>
+            <option value="3">澳洲</option>
+        </datalist>
+    </form>
+</body>
+</html>

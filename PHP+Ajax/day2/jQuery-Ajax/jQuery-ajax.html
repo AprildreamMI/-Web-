@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery-Axaj</title>
+    <script src="jquery-3.3.1.min.js"></script>
+</head>
+<body>
+<script>
+    $.ajax('../time.php',{
+        type:'get',
+        data:{id:1,name:'张三'},
+        success:function (res) {
+            // res=>拿到的是响应体
+            console.log(res);
+        }
+    })
+
+</script>
+</body>
+</html>

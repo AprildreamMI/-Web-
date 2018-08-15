@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>宽度过渡</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+            margin: 100px auto;
+            background-color: red;
+            /*transition: width 2s,background-color 2s;*/
+            transition: all 1s 2s;
+        }
+        .box:hover {
+            background-color: blue;
+            width: 600px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

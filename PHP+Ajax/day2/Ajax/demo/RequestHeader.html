@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>设置请求头</title>
+</head>
+<body>
+
+</body>
+<script>
+    var xhr=new XMLHttpRequest();
+
+    xhr.open('POST','add.php');         //设置请求行
+    xhr.setRequestHeader('FOO','Bar');  //设置一个请求头
+    xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+
+    //一定要对请求头的content-type设置请求体对应的格式
+    xhr.send('key1=value1&key2=value2');
+</script>
+</html>

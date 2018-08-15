@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>拖放到目标元素</title>
+    <style>
+        .one {
+            width: 400px;
+            height: 400px;
+            border: 1px solid #000;
+        }
+        .one>div,.two>div{
+            width: 98px;
+            height: 98px;
+            border: 1px solid #000;
+            border-radius: 50%;
+            background-color: red;
+            float: left;
+            text-align: center;
+            line-height: 98px;
+        }
+        .two {
+            width: 400px;
+            height: 400px;
+            border: 1px solid #000;
+            position: absolute;
+            left: 600px;
+            top: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="one" dra>
+        <div draggable="true">1</div>
+        <div draggable="true">2</div>
+        <div draggable="true">3</div>
+        <div draggable="true">4</div>
+        <div draggable="true">5</div>
+        <div draggable="true">6</div>
+        <div draggable="true">7</div>
+        <div draggable="true">8</div>
+    </div>
+    <div class="two"></div>
+</body>
+<script>
+    var oneBox=document.querySelector(".one");
+    var twoBox=document.querySelector(".two");
+    var numberDivArr=oneBox.children;
+
+    var temp=null;  //临时的圆形盒子，用于存放当前拖放的元素
+    for (var i=0;i<numberDivArr.length;i++)
+    {
+        numberDivArr[i].ondragstart=function (e) {
+            e.dataTransfer.setData("Text",e.target.id);
+            temp=this;  //保存当前拖放的元素
+            console.log("开始拖拽"+temp);
+        };
+        numberDivArr[i].ondragend=function () {
+            temp=null;
+            console.log("拖放结束"+temp);
+        }
+    }
+    
+    twoBox.ondragover=function (event) {
+        event.preventDefault(); //清除浏览器默认
+        console.log("在上面")
+    }
+    twoBox.ondrop=function () {
+        this.appendChild(temp);  //添加到目标盒子
+        console.log("松开");
+    }
+</script>
+</html>

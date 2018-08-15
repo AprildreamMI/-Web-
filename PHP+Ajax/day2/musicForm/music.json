@@ -1,0 +1,31 @@
+[
+  {
+    "id":"5b54467065fa7",
+    "musicName":"漫步",
+    "musicAuthor":"许巍",
+    "musicCover":"img/许巍.jpg",
+    "musicMp3":"mp3/许巍 - 漫步 - 电吉他版伴奏.mp3"
+  },
+  {
+    "id":"5b544e406f61f",
+    "musicName":"完美生活",
+    "musicAuthor":"许巍",
+    "musicCover":"img/许巍霸气.jpg",
+    "musicMp3":"mp3/完美生活 (Live)_许巍.mp3"
+  },
+  {
+    "id":"5b544e76354f4",
+    "musicName":"盛夏消暑录",
+    "musicAuthor":"万能青年旅店",
+    "musicCover":"img/万能青年旅店.jpg",
+    "musicMp3":"mp3/洋鸟消夏录_万能青年旅店.mp3"
+  },
+  {
+    "id":"5b54528a65710",
+    "musicName":"已约",
+    "musicAuthor":"子曰",
+    "musicCover":"img/子曰.jpg",
+    "musicMp3":"mp3/子曰乐队 - 伊呦.mp3"
+  }
+
+]

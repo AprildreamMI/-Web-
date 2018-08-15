@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>盾牌案例</title>
+    <style>
+        .box {
+            width: 510px;
+            height: 500px;
+            margin: 100px auto;
+            border: 1px solid #000;
+        }
+        .box span {
+            display: inline-block;
+            width: 250px;
+            height: 100px;
+            background-color: aqua;
+
+            transition: all 0.8s;
+        }
+        .box  span:nth-child(1) {
+            transform: translate(-100px,200px) rotate(35deg);
+        }.box span:nth-child(2) {
+            transform: translate(-50px,250px) rotate(85deg);
+        }.box span:nth-child(3) {
+            transform: translate(100px,-200px) rotate(125deg);
+        }.box span:nth-child(4) {
+            transform: translate(-100px,-100px) rotate(55deg);
+        }
+
+        .box:hover span {
+            transform: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</body>
+</html>

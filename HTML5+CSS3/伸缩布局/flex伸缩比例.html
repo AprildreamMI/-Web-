@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>flex伸缩比例</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        body {
+            background-color: #eee;
+            font-family: "Microsoft YaHei";
+            font-size: 22px;
+        }
+        section {
+            width: 1000px;
+            margin: 0 auto;
+        }
+        ul {
+            background-color: #fff;
+            margin: 40px auto;
+            display: flex;
+        }
+        ul li {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            margin: 10px;
+        }
+        section:nth-child(1) ul li:nth-child(1) {
+            flex: 1;
+        }
+        section:nth-child(1) ul li:nth-child(2) {
+            flex: 3;
+        }
+        section:nth-child(1) ul li:nth-child(3) {
+            flex: 1;
+        }
+
+        section:nth-child(2) ul li:nth-child(1) {
+
+        }
+        section:nth-child(2) ul li:nth-child(2) {
+            flex: 1;/*明确设置了宽度200px，并且不参与划分,那么就不划分*/
+        }
+        section:nth-child(2) ul li:nth-child(3) {
+            flex: 4;
+        }
+
+
+    </style>
+</head>
+<body>
+<section>
+    <h3>flex伸缩比例-三个li各占一份</h3>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+</section>
+<section>
+    <h3>flex伸缩比例-不占比例及比例划分</h3>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+</section>
+</body>
+</html>

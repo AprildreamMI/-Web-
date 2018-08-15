@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>拖放到目标元素</title>
+    <style>
+        .one {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000;
+            background-color: red;
+        }
+        .two {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            left: 500px;
+            top: 100px;
+            border: 1px solid black;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="one" draggable="true" id="one"></div>
+    <div class="two" id="two"></div>
+</body>
+<script>
+    var one=document.querySelector("#one");
+    var two=document.querySelector("#two")
+    document.body.ondrop=function(event){
+        event.preventDefault();
+        event.stopPropagation();
+    };
+    one.ondragstart=function (e) {
+        e.dataTransfer.setData("Text",e.target.id);
+        console.log("开始拖拽");
+    };
+    one.ondrag=function () {
+        console.log("正在拖动")
+    }
+    one.ondragend=function () {
+        console.log("元素拖动完成")
+    }
+    two.ondragenter=function () {
+        console.log("进入");
+    }
+    two.ondragleave=function () {
+        console.log("元素离开");
+    }
+    two.ondragover=function (event) {
+        event.preventDefault();
+        console.log("在上面");
+    }
+    two.ondrop=function () {
+        console.log("松开");
+    }
+</script>
+</html>

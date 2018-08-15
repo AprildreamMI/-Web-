@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>凹凸文字</title>
+    <style>
+        /*CSS3懂你的美*/
+        body {
+            background-color: #cccccc;
+        }
+        p {
+            text-align: center;
+            font-size: 100px;
+            font-family: "Microsoft YaHei";
+            margin: 150px auto;
+            font-weight: 700;
+            color: #cccccc;
+        }
+        .tu{
+            /*左右，上下，范围*/
+            text-shadow: -1px -1px 1px white,1px 1px 1px black;
+        }
+        .ao {
+            text-shadow: 1px 1px 1px white,-1px -1px 1px black;
+        }
+    </style>
+</head>
+<body>
+    <p class="tu">醉里挑灯看剑</p>
+    <p class="ao">梦回吹角连营</p>
+</body>
+</html>

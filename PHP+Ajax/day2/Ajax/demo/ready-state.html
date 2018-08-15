@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var xhr=new XMLHttpRequest();
+    // =>0   初始化请求代理对象
+
+    xhr.open('GET','time.php');
+    // =>1   建立与服务器特定端口的连接（搭桥）
+    xhr.send();
+    //同上为：1
+
+    xhr.addEventListener("readystatechange", function () {
+       /*if (this.readyState!=4) return;
+       console.log(this.responseText);*/
+       switch (this.readyState)  {
+           case 2:   //已经接受到了响应头
+               console.log(this.readyState);
+               console.log(this.getAllResponseHeaders());  //响应头
+               break;
+           case 3:   //正在下载响应体-响应体不完整
+               console.log(this.readyState);
+               console.log(this.responseText);
+               break;
+           case 4:   //一切下载完成OK
+               console.log(this.readyState);
+               console.log(this.responseText);
+               break;
+       }
+    });
+</script>
+</html>

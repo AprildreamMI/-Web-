@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax发送GET请求，并传递参数</title>
+</head>
+<body>
+<ul>
+    <li><a href=""></a></li>
+</ul>
+<script>
+    var xhr=new XMLHttpRequest();
+    //任然是使用问号传递参数
+    xhr.open('GET','users.php');
+    xhr.send();
+
+    xhr.addEventListener("readystatechange", function () {
+       if (this.readyState==4) {
+           console.log(this.responseText);
+       } else  {
+         return;
+       }
+    });
+</script>
+</body>
+</html>

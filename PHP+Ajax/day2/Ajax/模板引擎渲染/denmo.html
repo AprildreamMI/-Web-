@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX动态表格渲染</title>
+    <style>
+        table,tr,td {
+            border: 1px solid #000;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+
+    <table id="tableBox"></table>
+    <script id="temp" type="text/x-ear-template">
+        {{each comments}}
+            <tr>
+                <td>{{$value.author}}</td>
+                <td>{{$value.content}}</td>
+                <td>{{$value.created}}</td>
+            </tr>
+        {{/each}}
+    </script>
+    <script src="template-web.js"></script>
+    <script>
+        var tableBox=document.querySelector("#tableBox");
+        console.log(tableBox);
+        var xhr=new XMLHttpRequest();
+        xhr.open('GET','test.php');
+        xhr.send();
+        xhr.addEventListener("readystatechange", function () {
+            if (this.readyState==4) {
+                var jsonObj=JSON.parse(this.responseText);
+                var comdata={comments:jsonObj.data};
+                var tableTxt=template('temp',comdata);
+                tableBox.innerHTML=tableTxt;
+            } else {
+                return;
+            }
+
+        });
+    </script>
+</body>
+</html>

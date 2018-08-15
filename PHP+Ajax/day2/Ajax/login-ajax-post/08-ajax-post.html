@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AJAX发送POST请求</title>
+  <style>
+    #loading {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #555;
+      opacity: .5;
+      text-align: center;
+      line-height: 300px;
+    }
+
+    #loading::after {
+      content: '加载中...';
+      color : #fff;
+    }
+  </style>
+</head>
+<body>
+  <div id="loading"></div>
+  <table border="1">
+    <tr>
+      <td>用户名</td>
+      <td><input type="text" id="username"></td>
+    </tr>
+    <tr>
+      <td>密码</td>
+      <td><input type="password" id="password"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><button id="btn">登录</button></td>
+    </tr>
+  </table>
+  <script>
+
+    // 找一个合适的时机，做一件合适的事情
+    var btn = document.getElementById('btn');
+    // 1. 获取界面上的元素 value
+    var txtUsername = document.getElementById('username');
+    var txtPassword = document.getElementById('password');
+    var loading = document.getElementById('loading');
+
+    btn.onclick=function () {
+        loading.style.display='block';
+        var userName=txtUsername.value;
+        var userPassword=txtPassword.value;
+
+        var xhr=new XMLHttpRequest();
+        xhr.open('POST','login.php');
+        xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+        xhr.send(`username=${userName}&password=${userPassword}`);
+        xhr.addEventListener("readystatechange", function () {
+            if (this.readyState==4) {
+                console.log(this.responseText);
+                loading.style.display='none';
+            }
+        });
+    }
+
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>帧动画</title>
+    <style>
+        div {
+            width: 3px;
+            height: 200px;
+            margin: 100px auto;
+            background-color: black;
+            transform-origin: center bottom;
+
+            animation: rot 60s steps(60) infinite;
+        }
+
+        @keyframes rot {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

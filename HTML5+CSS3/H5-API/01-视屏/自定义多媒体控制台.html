@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义控制台</title>
+    <!--<link rel="stylesheet" href="../font-awesome-4.7.0/css/font-awesome.css">-->
+    <!--<link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+        i {
+            list-style: none;
+        }
+        figcaption {
+            text-align: center;
+            line-height: 150px;
+            font-family: "Microsoft YaHei UI";
+            font-size: 24px;
+        }
+        .palyer {
+            width: 720px;
+            height: 360px;
+            margin: 10px auto;
+            border:1px black solid;
+            background-color: pink;
+            position: relative;
+            border-radius: 20px;
+        }
+        .palyer video {       /*这是一个行内块标签*/
+            height: 100%;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /*控制条*/
+        .controls {
+            width: 700px;
+            height: 40px;
+            background-color: rgba(255,255,0,0.3);
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            border-radius:10px;
+        }
+        .switch {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            left: 10px;
+            top: 10px;
+            text-align: center;
+            line-height: 20px;
+        }
+        .switch i {
+            color: white;
+            font-size: 16px;
+            font-family:FontAwesome !important;
+        }
+        #play{
+            display: none;
+        }
+        .progress {
+            position: absolute;
+            width: 432px;
+            height: 10px;
+            background-color: rgba(255,255,255,0.4);
+            left: 40px;
+            top: 15px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .curr-progress {
+            width: 0%;
+            height: 10px;
+            background-color: white;
+        }
+        .time {
+            width: 120px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            color: white;
+            position: absolute;
+            right: 70px;
+            top: 10px;
+            font-size: 12px;
+        }
+        .extend {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: 20px;
+            top: 10px;
+            text-align: center;
+            line-height: 20px;
+        }
+        .extend i {
+            color: white;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <!--多媒体标签 figure-->
+    <figure>
+        <figcaption>视频案例</figcaption>
+        <div class="palyer">
+            <video src=凡人修仙传动画大电影预告片_超清.mp4></video>
+            <!--控制条-->
+            <div class="controls">
+                <a href="#" class="switch"> <!--开关按钮-->
+                    <i class="fa fa-play" id="no-play"></i>
+                    <i class="fa fa-pause" id="play"></i>
+                </a>
+                <div class="progress"> <!--总进度条-->
+                    <div class="curr-progress"> <!--当前进度条-->
+
+                    </div>
+                </div>
+                <div class="time">  <!--时间-->
+                    <span class="curr-time">00:00:00</span>  <!--当前时间-->
+                    <span class="total-time">00:00:00</span> <!--总时间-->
+                </div>
+                <a href="#" class="extend">
+                    <i class="fa fa-arrows-alt" id="extendI"></i>
+                </a> <!--全屏-->
+            </div>
+        </div>
+    </figure>
+</body>
+<script>
+    var video=document.querySelector("video");  //视频
+    var playI=document.querySelector("#play");  //播放按钮
+    var noPlayI=document.querySelector("#no-play");  //暂停按钮
+    var currPro=document.querySelector(".curr-progress"); //当前进度条
+    var currTime=document.querySelector(".curr-time");  //当前时间
+    var totalTime=document.querySelector(".total-time");  //总时间
+    var extendI=document.querySelector("#extendI");
+    var tTime;
+
+
+    video.oncanplay=showTime();
+    video.addEventListener("canplay",function () {
+        tTime=video.duration;
+        HMS(tTime,totalTime);
+    });
+    function showTime() {
+        tTime=video.duration;
+        HMS(tTime,totalTime);
+    }
+
+    video.ontimeupdate=function () {
+        var cTime=video.currentTime;    //获取当前视频位置
+        HMS(cTime,currTime);
+        currPro.style.width=(cTime/tTime)*100+"%";
+    }
+
+    extendI.onclick=function () {
+        video.mozRequestFullScreen(); //在火狐下使用，
+    }
+
+    playI.onclick=function () {    //在播放状态时点击,视频暂停
+        playI.style.display="none";
+        noPlayI.style.display="inline-block";
+        video.pause();
+    }
+
+    noPlayI.onclick=function () {   //在暂停状态时点击，视屏开始
+        noPlayI.style.display="none";
+        playI.style.display="inline-block";
+        video.play();
+    }
+
+    function HMS(time,ele) {        //设置总时长
+        var h=Math.floor(time/3600);
+        var m=Math.floor(time%3600/60);
+        var s=Math.floor(time%60);
+
+        h=h>=10?h:"0"+h;
+        m=m>=10?m:"0"+m;
+        s=s>=10?s:"0"+s;
+
+        ele.innerHTML=h+":"+m+":"+s;
+    }
+</script>
+</html>

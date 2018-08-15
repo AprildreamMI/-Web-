@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>心形</title>
+    <style>
+        .heart {
+            width: 200px;
+            height: 300px;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        .heart::before,.heart::after {
+            content: "赵思";
+            width: 100%;
+            height: 100%;
+            position: absolute;  /*行内元素没有宽高，定位一下就有宽高*/
+            background-color: red;
+            left: 0;
+            top: 0;
+
+            border-radius: 100px 100px 0 0;  /*长方形不能用百分比*/
+            transform: rotate(-45deg);
+
+            text-align: center;
+            line-height: 100px;
+            color: yellow;
+            font-size: 30px;
+            font-family: "Microsoft YaHei";
+
+        }
+
+        .heart::after {
+            content: "吕密";
+            left: 71px;
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="heart">
+
+    </div>
+</body>
+</html>

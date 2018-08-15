@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单元素</title>
+    <style>
+        form {
+            width: 100%;
+            /*最大宽度*/
+            max-width: 640px;
+            /*最小宽度*/
+            min-width: 320px;
+            margin: 0 auto;
+            font-family: "Microsoft YaHei UI";
+            font-size: 20px;
+        }
+        input,meter {
+            display: block;
+            width: 100%;
+            height: 30px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <fieldset>
+            <legend>表单元素</legend>
+            <lable>
+                用户名：<input type="text" name="userName" />
+            </lable>
+            <lable>
+                密码:<input type="password" name="pwd" />
+            </lable>
+            <label>
+                性别:<input type="text" list="sex" name="sex" />
+            </label>
+            <datalist id="sex">
+                <option>男</option>
+                <option>女</option>
+                <option>不愿意透露</option>
+            </datalist>
+
+            <lable>
+                推荐人: <output>赵思</output>
+            </lable>
+            <br><br>
+            <label>
+                度量器: <meter value="50" max="100" min="0" low="30" high="80"></meter>
+            </label>
+            <progress value="40"></progress>  <!--进度条 -->
+            <input type="submit" value="提交" />
+        </fieldset>
+    </form>
+</body>
+</html>

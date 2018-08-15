@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax发送GET请求，并传递参数</title>
+</head>
+<body>
+<ul id="ulBox">
+
+</ul>
+<script>
+    var ulbox=document.querySelector("#ulBox");
+    var jsonStr=null;
+    var jsonObj=null;
+    var xhr=new XMLHttpRequest();
+    //任然是使用问号传递参数
+    xhr.open('GET','users.php');
+    xhr.send();
+
+    xhr.addEventListener("readystatechange", function () {
+       if (this.readyState==4) {
+           console.log(this.responseText);
+           jsonStr=this.responseText;
+           jsonObj=eval('('+jsonStr+')');
+
+           for (var i=0;i<jsonObj.length;i++) {
+               var newLi=document.createElement('li');
+               newLi.innerText=jsonObj[i].name;
+               newLi.index=i;
+               newLi.addEventListener('click',function () {
+                  alert(jsonObj[this.index].age);
+               });
+               ulbox.appendChild(newLi);
+           }
+       } else  {
+         return;
+       }
+    });
+</script>
+</body>
+</html>

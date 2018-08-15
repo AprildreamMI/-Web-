@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>翻转文字</title>
+    <style>
+        .box {
+            width: 500px;
+            margin: 200px auto;
+        }
+        .box span {
+            float: left;
+            width: 100px;
+            height: 100px;
+            font-size: 80px;
+            line-height: 100px;
+            text-align: center;
+            font-family: "Microsoft YaHei";
+            position: relative;
+        }
+        span::before,span::after {
+            position: absolute;
+            content: attr(data-text);
+            top: 0;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            font-size: 80px;
+            line-height: 100px;
+            text-align: center;
+            font-family: "Microsoft YaHei";
+            /*color: white;*/
+            /*color: blue;*/
+            /*transform: scale(0.95,1);*/
+            transform-origin: left top;
+            transition: all 1s;
+        }
+        /*span::before {
+            content: "My is before";
+            color: rgba(0,0,0,0.3);
+        }
+        .box:hover span::after {
+            transform: rotateY(25deg) skew(0deg,5deg);
+        }
+        .box:hover span::before {
+            transform: skew(0deg,15deg);
+        }*/
+        span::before {
+            color: blue;
+        }
+        span::after {
+             color: green;
+        }
+        /*.box:hover span::before {
+            transform: rotateY(25deg) skew(0deg,5deg);
+        }
+        .box:hover span::after {
+
+            transform: skew(0deg,15deg);
+        }*/
+    </style>
+</head>
+<body>
+    <div class="box">
+        <span data-text="赵">赵</span>
+        <span data-text="思">思</span>
+        <span data-text="吕">吕</span>
+        <span data-text="密">密</span>
+    </div>
+</body>
+</html>

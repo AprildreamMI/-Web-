@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>主轴的对齐方式</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        body {
+            background-color: #eee;
+            font-family: "Microsoft YaHei";
+            font-size: 22px;
+        }
+        section {
+            width: 1000px;
+            margin: 0 auto;
+        }
+        ul {
+            height: 400px;
+            background-color: #fff;
+            margin: 40px auto;
+            display: flex;
+            border: 1px solid #000;
+        }
+        ul li {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            margin: 10px;
+        }
+        section:nth-child(1) ul {
+            align-items: flex-start;
+        }
+        section:nth-child(2) ul {
+            align-items: flex-end;
+        }
+        section:nth-child(3) ul {
+            align-items: center;
+        }
+        section:nth-child(4) ul {
+            align-items: baseline;
+        }
+        section:nth-child(5) ul {
+            align-items: stretch;
+        }
+        section:nth-child(5) li {
+            height: auto;
+        }
+        
+
+    </style>
+</head>
+<body>
+<section>
+    <h3>侧轴对齐方式-侧轴开始-上对齐 align-items: flex-start</h3>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+</section>
+<section>
+    <h3>侧轴对齐方式-侧轴结束-下对齐 align-items: flex-end</h3>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+</section>
+<section>
+    <h3>侧轴对齐方式-垂直居中对齐 align-items: center</h3>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+</section>
+<section>
+    <h3>侧轴对齐方式-基线对齐-默认同flex-start align-items: baseline</h3>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+</section>
+<section>
+    <h3>侧轴对齐方式-拉伸对齐-需要释放高度 align-items: stretch</h3>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+</section>
+</body>
+</html>

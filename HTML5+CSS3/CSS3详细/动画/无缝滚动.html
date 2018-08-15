@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>无缝滚动</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        .box {
+            width: 1035px;
+            height: 270px;
+            margin: 200px auto;
+            overflow: hidden;
+        }
+        ul {
+            width: 2070px;
+            height: 270px;
+            animation: gun 3s linear infinite;
+        }
+        ul:hover {
+            animation-play-state: paused;
+        }
+        ul li {
+            float: left;
+        }
+        @keyframes gun {
+            0% {
+                transform: translate(0px);
+            }
+            100% {
+                transform: translate(-1035px);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li>
+                <img src="../../img/打不了.jpg" />
+            </li>
+            <li>
+                <img src="../../img/去死.jpg" />
+            </li>
+            <li>
+                <img src="../../img/说话.jpg" />
+            </li>
+            <li>
+                <img src="../../img/打不了.jpg" />
+            </li>
+            <li>
+                <img src="../../img/去死.jpg" />
+            </li>
+            <li>
+                <img src="../../img/说话.jpg" />
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

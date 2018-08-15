@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX 快速上手</title>
+</head>
+<body>
+<script>
+
+    //设计到AJAX的操作，不能使用file://协议访问
+
+    //XMLHttpRequest
+    //1.安装浏览器
+    //xhr就是浏览器的作用，发送请求和接受响应
+    var xhr=new XMLHttpRequest();
+
+
+    //五个状态，重创建开始到接受到响应：1,2,3,4,5
+    xhr.onreadystatechange=function () {
+        //这个事件并不是响应时触发，而是状态改变就触发
+        // console.log(1);
+        // console.log(this.readyState);
+        if (this.readyState==4) {
+            console.log(this.responseText);
+        }
+    }
+    //2.输入网址,要用GET请求
+    xhr.open('GET','http://day2.com/Ajax/demo/test.html');
+    //3.敲回车,开始请求
+    //因为不知道客户端合适才能收到响应，所以不能通过，返回响应
+    //var request=xhr.send();
+    xhr.send();
+    //4.等待响应
+    //响应完成了，就执行函数
+
+
+</script>
+</body>
+</html>
